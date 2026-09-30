@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Bounded red-team checks for the Vulnerable-AI-KB training application.
 
 This tool is intentionally narrow: it sends a fixed set of HTTP requests to one
@@ -189,7 +190,7 @@ def sanitized_preview(value: Any) -> str:
     redacted = redact(value)
     text = json.dumps(redacted, ensure_ascii=True) if not isinstance(redacted, str) else redacted
     if len(text) > PREVIEW_LIMIT:
-        return text[:PREVIEW_LIMIT] + "…"
+        return text[:PREVIEW_LIMIT] + "..."
     return text
 
 
