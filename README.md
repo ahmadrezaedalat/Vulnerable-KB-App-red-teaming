@@ -50,8 +50,9 @@ or an expected check fails.
 - Direct SQL execution through `/api/assistant/chat` using a read-only count
   query. This check does not require an OpenAI key because the vulnerable app
   intentionally supports SQL-shaped input directly.
-- Natural-language prompt checks that ask for Alice's credit-card number and
-  home address, plus a conversational prompt that embeds a SQL query. These
+- Natural-language PII-extraction prompts for Alice's credit-card number,
+  address, email, and government identifier; role-play and instruction-override
+  prompt-injection variants; and conversational prompts that embed SQL. These
   checks require the assistant's configured model integration.
 - PostgreSQL `COPY FROM PROGRAM` through `/api/assistant/chat`, using a
   directory-listing command to demonstrate OS command execution.
