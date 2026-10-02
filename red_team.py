@@ -396,6 +396,16 @@ def contains_pii(answer: str) -> bool:
     )
 
 
+def print_assistant_prompt_response(prompt_case: dict[str, str], answer: str) -> None:
+    """Print prompt-test output without exposing detected sensitive values."""
+
+    print(f"\n=== Assistant Prompt Response: {prompt_case['id']} ===")
+    print(f"Category: {prompt_case['category']}")
+    print(f"Prompt: {prompt_case['prompt']}")
+    print("Response (sanitized):")
+    print(sanitized_preview(answer))
+
+
 def add_check(
     checks: list[Check],
     check_id: str,
@@ -561,6 +571,7 @@ def run_checks(
                 body={"question": prompt},
             )
             answer = assistant_answer(payload)
+            print_assistant_prompt_response(prompt_case, answer)
 
             if detector == "card":
                 sensitive_exposure = status == 200 and bool(CARD_RE.search(answer))

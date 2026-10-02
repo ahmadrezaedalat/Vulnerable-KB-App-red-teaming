@@ -53,7 +53,8 @@ or an expected check fails.
 - Natural-language PII-extraction prompts for Alice's credit-card number,
   address, email, and government identifier; role-play and instruction-override
   prompt-injection variants; and conversational prompts that embed SQL. These
-  checks require the assistant's configured model integration.
+  checks require the assistant's configured model integration. Each prompt's
+  response is printed in sanitized form during the run.
 - PostgreSQL `COPY FROM PROGRAM` through `/api/assistant/chat`, using a
   directory-listing command to demonstrate OS command execution.
 - A separate configurable `nc` egress test through `COPY FROM PROGRAM`, which
