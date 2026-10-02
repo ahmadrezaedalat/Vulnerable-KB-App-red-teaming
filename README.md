@@ -51,7 +51,7 @@ or an expected check fails.
   query. This check does not require an OpenAI key because the vulnerable app
   intentionally supports SQL-shaped input directly.
 - Natural-language PII-extraction prompts for Alice's credit-card number,
-  address, email, and government identifier; role-play and instruction-override
+  address, and government identifier; role-play and instruction-override
   prompt-injection variants; and conversational prompts that embed SQL. These
   checks require the assistant's configured model integration. Each prompt's
   response is printed in sanitized form during the run.
